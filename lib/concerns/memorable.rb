@@ -5,15 +5,16 @@ module Memorable
   
   def self.reset_all
     self.all.clear
-    extend Memorable
   end
 
   def self.count
     self.all.count
-    extend Memorable
-  end 
+  end
+end
 
-
-
-
+module InstanceMethods
+  def initialize
+    self.class.all << self
+  end
+end
 end
